@@ -90,8 +90,7 @@ let
       name = "chromium-git-${version}";
       inherit src;
 
-      nativeBuildInputs = [ gn ninja python2 pkg-config jre8 gperf bison ]
-        ++ lib.optionals (lib.versionOlder version "76.0") [ protobuf python2.pkgs.jinja2 python2.pkgs.ply ];
+      nativeBuildInputs = [ gn ninja python2 pkg-config jre8 gperf bison ];
       buildInputs = [
         dbus at-spi2-atk atk at-spi2-core nspr nss pciutils utillinux kerberos
         gdk-pixbuf glib gtk3 alsaLib libXScrnSaver libXcursor libXtst libGLU_combined libXdamage
@@ -192,8 +191,7 @@ let
     };
 
 in {
-  chromium-git_75 = common { version = "75.0.3770.156"; };
-  chromium-git_76 = common { version = "76.0.3809.114"; };
-  chromium-git_77 = common { version = "77.0.3865.29";  };
-  chromium-git_78 = common { version = "78.0.3879.1";   };
+  chromium-git_77 = common { version = "77.0.3865.129"; };
+  chromium-git_78 = common { version = "78.0.3904.68";  };
+  chromium-git_79 = common { version = "79.0.3944.2";   };
 }
