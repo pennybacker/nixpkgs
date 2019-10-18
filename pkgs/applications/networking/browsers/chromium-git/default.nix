@@ -148,6 +148,7 @@ let
           echo 'checkout_android = false'                 >> build/config/gclient_args.gni
           echo 'checkout_android_native_support = false'  >> build/config/gclient_args.gni
           echo 'checkout_nacl = false'                    >> build/config/gclient_args.gni
+          echo 'checkout_openxr = false'                  >> build/config/gclient_args.gni
           echo 'checkout_oculus_sdk = false'              >> build/config/gclient_args.gni
         )
       '';
