@@ -198,7 +198,7 @@ let
     };
 
 in {
-  chromium-git_77 = common { version = "77.0.3865.129"; };
-  chromium-git_78 = common { version = "78.0.3904.68";  };
-  chromium-git_79 = common { version = "79.0.3944.2";   };
+  chromium-git_78 = common { version = "78.0.3904.77";  };
+  chromium-git_79 = common { version = "79.0.3945.9";   };
+  chromium-git_80 = common { version = "80.0.3949.1";   };
 }
