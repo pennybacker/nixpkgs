@@ -25,11 +25,11 @@ let
   # https://gitlab.com/noencoding/OS-X-Chromium-with-proprietary-codecs/wikis/List-of-all-gn-arguments-for-Chromium-build
   gnFlags = {
     is_debug = false;
-    use_jumbo_build = true; # at least 2X compilation speedup
+    use_jumbo_build = false; # `true` gives at least 2X compilation speedup, but it does not work for some versions
 
     proprietary_codecs = false;
     enable_nacl = false;
-    is_component_build = true;
+    is_component_build = false;
     is_clang = true;
     clang_use_chrome_plugins = false;
 
