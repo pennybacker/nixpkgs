@@ -184,7 +184,6 @@ let
         description = "An open source web browser from Google";
         homepage = https://github.com/chromium/chromium;
         license = licenses.bsd3;
-        hydraPlatforms = [];
         platforms = [ "i686-linux" "armv7l-linux" "x86_64-linux" "aarch64-linux" ];
         maintainers = with maintainers; [ volth ];
       };
