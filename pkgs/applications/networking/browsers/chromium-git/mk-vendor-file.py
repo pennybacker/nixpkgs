@@ -43,7 +43,7 @@ def nix_str_git(path, dep):
 def make_vendor_file(chromium_version, target_os):
     topdir = os.path.join(BASEDIR, chromium_version)
     if not os.path.isdir(topdir):
-        os.mkdir(topdir)
+        os.makedirs(topdir)
 
     # first checkout depot_tools for gclient.py which will help to produce list of deps
     if not os.path.isdir(os.path.join(topdir, "depot_tools")):
@@ -84,7 +84,7 @@ def make_vendor_file(chromium_version, target_os):
     # this subdirectory must have "src" name for 'gclient.py' recognises it
     src_dir = os.path.join(topdir, "src")
     if not os.path.isdir(src_dir):
-        os.mkdir(src_dir)
+        os.makedirs(src_dir)
         subprocess.check_call(["git", "init"], cwd=src_dir)
         subprocess.check_call(["git", "remote", "add", "origin", "https://chromium.googlesource.com/chromium/src.git"], cwd=src_dir)
         subprocess.check_call(["git", "fetch", "--progress", "--depth", "1", "origin", "+" + chromium_version], cwd=src_dir)
@@ -142,7 +142,7 @@ def make_vendor_file(chromium_version, target_os):
                     if path != "src":
                         shutil.rmtree(wholepath, ignore_errors=True)
                         if not os.path.isdir(os.path.dirname(wholepath)):
-                            os.mkdir(os.path.dirname(wholepath))
+                            os.makedirs(os.path.dirname(wholepath))
                         #shutil.copytree(memoized_path, wholepath, copy_function=os.link) # copy_function isn't available in python 2
                         subprocess.check_call(["cp", "-al", memoized_path, wholepath])
 
