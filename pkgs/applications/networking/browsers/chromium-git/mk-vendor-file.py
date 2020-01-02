@@ -14,7 +14,7 @@ import sys
 
 BASEDIR = "/tmp/z"
 
-SKIP_DEPS = [ "src" ]
+SKIP_DEPS = []
 
 def hash_path(path):
     sha256 = subprocess.check_output(["nix", "hash-path", "--base32", "--type", "sha256", path]).strip()
