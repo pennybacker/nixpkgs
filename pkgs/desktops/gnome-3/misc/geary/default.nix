@@ -78,9 +78,9 @@ stdenv.mkDerivation rec {
   };
 
   meta = with stdenv.lib; {
-    homepage = https://wiki.gnome.org/Apps/Geary;
+    homepage = "https://wiki.gnome.org/Apps/Geary";
     description = "Mail client for GNOME 3";
-    maintainers = gnome3.maintainers;
+    maintainers = teams.gnome.members;
     license = licenses.lgpl21Plus;
     platforms = platforms.linux;
   };

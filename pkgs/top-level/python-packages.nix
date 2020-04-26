@@ -795,6 +795,8 @@ in {
 
   handout = callPackage ../development/python-modules/handout { };
 
+  HAP-python = callPackage ../development/python-modules/HAP-python { };
+
   helper = callPackage ../development/python-modules/helper { };
 
   hdmedians = callPackage ../development/python-modules/hdmedians { };
@@ -1023,6 +1025,8 @@ in {
 
   pdfminer = callPackage ../development/python-modules/pdfminer_six { };
 
+  pdfposter = callPackage ../development/python-modules/pdfposter { };
+
   pdftotext = callPackage ../development/python-modules/pdftotext { };
 
   pdfx = callPackage ../development/python-modules/pdfx { };
@@ -1126,6 +1130,10 @@ in {
   py-cpuinfo = callPackage ../development/python-modules/py-cpuinfo { };
 
   py-lru-cache = callPackage ../development/python-modules/py-lru-cache { };
+
+  py-multibase = callPackage ../development/python-modules/py-multibase { };
+
+  py-multihash = callPackage ../development/python-modules/py-multihash { };
 
   py-radix = callPackage ../development/python-modules/py-radix { };
 
@@ -1618,6 +1626,8 @@ in {
   aioh2 = callPackage ../development/python-modules/aioh2 { };
 
   aioftp = callPackage ../development/python-modules/aioftp { };
+
+  aioharmony = callPackage ../development/python-modules/aioharmony { };
 
   aiohttp = callPackage ../development/python-modules/aiohttp { };
 
@@ -4004,6 +4014,8 @@ in {
 
   hypothesis = callPackage ../development/python-modules/hypothesis { };
 
+  hydra-check = callPackage ../development/python-modules/hydra-check { };
+
   colored = callPackage ../development/python-modules/colored { };
 
   xdg = callPackage ../development/python-modules/xdg { };
@@ -4366,7 +4378,10 @@ in {
 
   maya = callPackage ../development/python-modules/maya { };
 
-  mayavi = callPackage ../development/python-modules/mayavi { };
+  mayavi = pkgs.libsForQt5.callPackage ../development/python-modules/mayavi {
+    inherit buildPythonPackage isPy27 fetchPypi;
+    inherit (self) pyface pygments numpy vtk traitsui envisage apptools pyqt5;
+  };
 
   mccabe = callPackage ../development/python-modules/mccabe { };
 
@@ -4657,9 +4672,7 @@ in {
   Nuitka = callPackage ../development/python-modules/nuitka { };
 
   numpy = let
-    numpy_ = callPackage ../development/python-modules/numpy {
-      blas = pkgs.openblasCompat;
-    };
+    numpy_ = callPackage ../development/python-modules/numpy { };
     numpy_2 = numpy_.overridePythonAttrs(oldAttrs: rec {
       version = "1.16.5";
       src = oldAttrs.src.override {
@@ -4815,6 +4828,8 @@ in {
 
   paho-mqtt = callPackage ../development/python-modules/paho-mqtt { };
 
+  pagelabels = callPackage ../development/python-modules/pagelabels { };
+
   pamqp = callPackage ../development/python-modules/pamqp { };
 
   parsedatetime = callPackage ../development/python-modules/parsedatetime { };
@@ -4886,6 +4901,8 @@ in {
 
   pdfkit = callPackage ../development/python-modules/pdfkit { };
 
+  pdfrw = callPackage ../development/python-modules/pdfrw { };
+
   periodictable = callPackage ../development/python-modules/periodictable { };
 
   pgcli = callPackage ../development/tools/database/pgcli {};
@@ -4938,11 +4955,7 @@ in {
 
   promise = callPackage ../development/python-modules/promise { };
 
-  prox-tv = callPackage ../development/python-modules/prox-tv {
-    # We need to use blas instead of openblas on darwin,
-    # see https://github.com/NixOS/nixpkgs/pull/45013.
-    useOpenblas = ! stdenv.isDarwin;
-  };
+  prox-tv = callPackage ../development/python-modules/prox-tv { };
 
   pvlib = callPackage ../development/python-modules/pvlib { };
 
@@ -5027,6 +5040,8 @@ in {
   ptable = callPackage ../development/python-modules/ptable { };
 
   publicsuffix = callPackage ../development/python-modules/publicsuffix {};
+
+  publicsuffix2 = callPackage ../development/python-modules/publicsuffix2 {};
 
   py = callPackage ../development/python-modules/py { };
 
@@ -6001,6 +6016,8 @@ in {
   zc_lockfile = callPackage ../development/python-modules/zc_lockfile { };
 
   zerorpc = callPackage ../development/python-modules/zerorpc { };
+
+  zimports = callPackage ../development/python-modules/zimports { };
 
   zipstream = callPackage ../development/python-modules/zipstream { };
 

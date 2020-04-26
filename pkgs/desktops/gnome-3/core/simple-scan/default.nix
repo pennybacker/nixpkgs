@@ -43,9 +43,9 @@ stdenv.mkDerivation rec {
       XSANE uses. This means that all existing scanners will work and the
       interface is well tested.
     '';
-    homepage = https://gitlab.gnome.org/GNOME/simple-scan;
+    homepage = "https://gitlab.gnome.org/GNOME/simple-scan";
     license = licenses.gpl3Plus;
-    maintainers = gnome3.maintainers;
+    maintainers = teams.gnome.members;
     platforms = platforms.linux;
   };
 }

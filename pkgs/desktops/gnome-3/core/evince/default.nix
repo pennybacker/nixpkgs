@@ -116,7 +116,7 @@ stdenv.mkDerivation rec {
   };
 
   meta = with stdenv.lib; {
-    homepage = https://wiki.gnome.org/Apps/Evince;
+    homepage = "https://wiki.gnome.org/Apps/Evince";
     description = "GNOME's document viewer";
 
     longDescription = ''
@@ -128,6 +128,6 @@ stdenv.mkDerivation rec {
 
     license = stdenv.lib.licenses.gpl2Plus;
     platforms = platforms.linux;
-    maintainers = gnome3.maintainers ++ [ maintainers.vcunat ];
+    maintainers = teams.gnome.members ++ [ maintainers.vcunat ];
   };
 }

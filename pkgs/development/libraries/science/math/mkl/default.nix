@@ -11,8 +11,8 @@ let
   # Darwin is pinned to 2019.3 because the DMG does not unpack; see here for details:
   # https://github.com/matthewbauer/undmg/issues/4
   year = if stdenvNoCC.isDarwin then "2019" else "2020";
-  spot = if stdenvNoCC.isDarwin then "3" else "0";
-  rel = if stdenvNoCC.isDarwin then "199" else "166";
+  spot = if stdenvNoCC.isDarwin then "3" else "1";
+  rel = if stdenvNoCC.isDarwin then "199" else "217";
 
   rpm-ver = "${year}.${spot}-${rel}-${year}.${spot}-${rel}";
 
@@ -32,8 +32,8 @@ in stdenvNoCC.mkDerivation {
       })
     else
       (fetchurl {
-        url = "https://registrationcenter-download.intel.com/akdlm/irc_nas/tec/16318/l_mkl_${version}.tgz";
-        sha256 = "1q4ab87qzraksn8mm4117vj7l3sgpdi2qszj7nx122zi7zmjvngn";
+        url = "https://registrationcenter-download.intel.com/akdlm/irc_nas/tec/16533/l_mkl_${version}.tgz";
+        sha256 = "0v86hrqg15mbc78m9qk8dbkaaq3mlwashgbf9n79kxpl1gilnah8";
       });
 
   nativeBuildInputs = if stdenvNoCC.isDarwin
@@ -111,7 +111,14 @@ in stdenvNoCC.mkDerivation {
       cp -r opt/intel/compilers_and_libraries_${version}/linux/compiler/lib/intel64_lin/*.so* $out/lib/
       cp -r opt/intel/compilers_and_libraries_${version}/linux/mkl/lib/intel64_lin/*.so* $out/lib/
       cp -r opt/intel/compilers_and_libraries_${version}/linux/mkl/bin/pkgconfig/*dynamic*.pc $out/lib/pkgconfig
-    '');
+    '') + ''
+
+    # Setup symlinks for blas / lapack
+    ln -s $out/lib/libmkl_rt${stdenvNoCC.hostPlatform.extensions.sharedLibrary} $out/lib/libblas${stdenvNoCC.hostPlatform.extensions.sharedLibrary}
+    ln -s $out/lib/libmkl_rt${stdenvNoCC.hostPlatform.extensions.sharedLibrary} $out/lib/libcblas${stdenvNoCC.hostPlatform.extensions.sharedLibrary}
+    ln -s $out/lib/libmkl_rt${stdenvNoCC.hostPlatform.extensions.sharedLibrary} $out/lib/liblapack${stdenvNoCC.hostPlatform.extensions.sharedLibrary}
+    ln -s $out/lib/libmkl_rt${stdenvNoCC.hostPlatform.extensions.sharedLibrary} $out/lib/liblapacke${stdenvNoCC.hostPlatform.extensions.sharedLibrary}
+  '';
 
   # fixDarwinDylibName fails for libmkl_cdft_core.dylib because the
   # larger updated load commands do not fit. Use install_name_tool

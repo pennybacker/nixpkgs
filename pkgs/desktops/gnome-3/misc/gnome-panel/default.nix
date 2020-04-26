@@ -91,9 +91,9 @@ in stdenv.mkDerivation rec {
 
   meta = with stdenv.lib; {
     description = "Component of Gnome Flashback that provides panels and default applets for the desktop";
-    homepage = https://wiki.gnome.org/Projects/GnomePanel;
+    homepage = "https://wiki.gnome.org/Projects/GnomePanel";
     license = licenses.gpl2Plus;
-    maintainers = gnome3.maintainers;
+    maintainers = teams.gnome.members;
     platforms = platforms.linux;
   };
 }

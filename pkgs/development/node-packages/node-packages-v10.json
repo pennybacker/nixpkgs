@@ -135,6 +135,7 @@
 , "peerflix"
 , "peerflix-server"
 , "pnpm"
+, "postcss-cli"
 , "prettier"
 , "pscid"
 , "pulp"
@@ -142,6 +143,7 @@
 , "react-native-cli"
 , "react-tools"
 , "reveal.js"
+, { "rust-analyzer-build-deps": "../../misc/vscode-extensions/rust-analyzer/build-deps" }
 , "s3http"
 , "semver"
 , "serve"

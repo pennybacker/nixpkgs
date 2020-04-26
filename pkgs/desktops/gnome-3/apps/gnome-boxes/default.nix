@@ -133,9 +133,9 @@ stdenv.mkDerivation rec {
 
   meta = with stdenv.lib; {
     description = "Simple GNOME 3 application to access remote or virtual systems";
-    homepage = https://wiki.gnome.org/Apps/Boxes;
+    homepage = "https://wiki.gnome.org/Apps/Boxes";
     license = licenses.gpl3;
     platforms = platforms.linux;
-    maintainers = gnome3.maintainers;
+    maintainers = teams.gnome.members;
   };
 }

@@ -29,9 +29,9 @@ stdenv.mkDerivation rec {
   '';
 
   meta = with stdenv.lib; {
-    homepage = https://wiki.gnome.org/Apps/Robots;
+    homepage = "https://wiki.gnome.org/Apps/Robots";
     description = "Avoid the robots and make them crash into each other";
-    maintainers = gnome3.maintainers;
+    maintainers = teams.gnome.members;
     license = licenses.gpl2;
     platforms = platforms.linux;
   };
