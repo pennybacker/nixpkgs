@@ -2,7 +2,7 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "cargo-make";
-  version = "0.30.6";
+  version = "0.30.8";
 
   src =
     let
@@ -10,7 +10,7 @@ rustPlatform.buildRustPackage rec {
         owner = "sagiegurari";
         repo = pname;
         rev = version;
-        sha256 = "1kr3ay1gifyhwk6nlzq5vdi45583f5yvszk1pjsy2ki8l8j3ba3h";
+        sha256 = "0sx1kvrk2df5v9f35cd6201b3m8d6ynppmikqm00g55db9r4vfl2";
       };
     in
     runCommand "source" {} ''
@@ -24,7 +24,7 @@ rustPlatform.buildRustPackage rec {
   buildInputs = [ openssl ]
     ++ stdenv.lib.optionals stdenv.isDarwin [ Security ];
 
-  cargoSha256 = "0zfylhfz2c8yfixjiv41kl1xgmbbh2c38cc8ajx1pxrhgn7ig5dv";
+  cargoSha256 = "1b0x12hcjy061dvbpy5cwgp6pwlzq2k1dapr9glw8dwprns57ar7";
 
   # Some tests fail because they need network access.
   # However, Travis ensures a proper build.

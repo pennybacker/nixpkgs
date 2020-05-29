@@ -63,15 +63,6 @@ let
     ${cfg.extraConfig}
   '';
 
-  phpPackage =
-    let
-      base = pkgs.php;
-    in
-      base.buildEnv {
-        extensions = e: with e;
-          base.enabledExtensions ++ [ apcu ];
-      };
-
 in {
   options = {
     services.zoneminder = with lib; {
@@ -293,7 +284,8 @@ in {
 
       phpfpm = lib.mkIf useNginx {
         pools.zoneminder = {
-          inherit user group phpPackage;
+          inherit user group;
+          phpPackage = pkgs.php.withExtensions ({ enabled, all }: enabled ++ [ all.apcu ]);
           phpOptions = ''
             date.timezone = "${config.time.timeZone}"
           '';

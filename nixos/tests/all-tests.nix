@@ -23,10 +23,11 @@ in
 {
   _3proxy = handleTest ./3proxy.nix {};
   acme = handleTest ./acme.nix {};
+  agda = handleTest ./agda.nix {};
   atd = handleTest ./atd.nix {};
-  automysqlbackup = handleTest ./automysqlbackup.nix {};
   avahi = handleTest ./avahi.nix {};
   babeld = handleTest ./babeld.nix {};
+  bazarr = handleTest ./bazarr.nix {};
   bcachefs = handleTestOn ["x86_64-linux"] ./bcachefs.nix {}; # linux-4.18.2018.10.12 is unsupported on aarch64
   beanstalkd = handleTest ./beanstalkd.nix {};
   bees = handleTest ./bees.nix {};
@@ -69,8 +70,9 @@ in
   deluge = handleTest ./deluge.nix {};
   dhparams = handleTest ./dhparams.nix {};
   dnscrypt-proxy2 = handleTestOn ["x86_64-linux"] ./dnscrypt-proxy2.nix {};
+  doas = handleTest ./doas.nix {};
   docker = handleTestOn ["x86_64-linux"] ./docker.nix {};
-  docker-containers = handleTestOn ["x86_64-linux"] ./docker-containers.nix {};
+  oci-containers = handleTestOn ["x86_64-linux"] ./oci-containers.nix {};
   docker-edge = handleTestOn ["x86_64-linux"] ./docker-edge.nix {};
   docker-preloader = handleTestOn ["x86_64-linux"] ./docker-preloader.nix {};
   docker-registry = handleTest ./docker-registry.nix {};
@@ -85,7 +87,10 @@ in
   ecryptfs = handleTest ./ecryptfs.nix {};
   ejabberd = handleTest ./xmpp/ejabberd.nix {};
   elk = handleTestOn ["x86_64-linux"] ./elk.nix {};
+  engelsystem = handleTest ./engelsystem.nix {};
+  enlightenment = handleTest ./enlightenment.nix {};
   env = handleTest ./env.nix {};
+  ergo = handleTest ./ergo.nix {};
   etcd = handleTestOn ["x86_64-linux"] ./etcd.nix {};
   etcd-cluster = handleTestOn ["x86_64-linux"] ./etcd-cluster.nix {};
   fancontrol = handleTest ./fancontrol.nix {};
@@ -130,6 +135,7 @@ in
   hitch = handleTest ./hitch {};
   hocker-fetchdocker = handleTest ./hocker-fetchdocker {};
   home-assistant = handleTest ./home-assistant.nix {};
+  hostname = handleTest ./hostname.nix {};
   hound = handleTest ./hound.nix {};
   hydra = handleTest ./hydra {};
   hydra-db-migration = handleTest ./hydra/db-migration.nix {};
@@ -143,6 +149,7 @@ in
   initrdNetwork = handleTest ./initrd-network.nix {};
   installer = handleTest ./installer.nix {};
   iodine = handleTest ./iodine.nix {};
+  ipfs = handleTest ./ipfs.nix {};
   ipv6 = handleTest ./ipv6.nix {};
   jackett = handleTest ./jackett.nix {};
   jellyfin = handleTest ./jellyfin.nix {};
@@ -164,7 +171,6 @@ in
   kubernetes.rbac = handleTestOn ["x86_64-linux"] ./kubernetes/rbac.nix {};
   latestKernel.hardened = handleTest ./hardened.nix { latestKernel = true; };
   latestKernel.login = handleTest ./login.nix { latestKernel = true; };
-  ldap = handleTest ./ldap.nix {};
   leaps = handleTest ./leaps.nix {};
   lidarr = handleTest ./lidarr.nix {};
   lightdm = handleTest ./lightdm.nix {};
@@ -176,6 +182,8 @@ in
   magnetico = handleTest ./magnetico.nix {};
   magic-wormhole-mailbox-server = handleTest ./magic-wormhole-mailbox-server.nix {};
   mailcatcher = handleTest ./mailcatcher.nix {};
+  mariadb-galera-mariabackup = handleTest ./mysql/mariadb-galera-mariabackup.nix {};
+  mariadb-galera-rsync = handleTest ./mysql/mariadb-galera-rsync.nix {};
   mathics = handleTest ./mathics.nix {};
   matomo = handleTest ./matomo.nix {};
   matrix-synapse = handleTest ./matrix-synapse.nix {};
@@ -197,9 +205,10 @@ in
   munin = handleTest ./munin.nix {};
   mutableUsers = handleTest ./mutable-users.nix {};
   mxisd = handleTest ./mxisd.nix {};
-  mysql = handleTest ./mysql.nix {};
-  mysqlBackup = handleTest ./mysql-backup.nix {};
-  mysqlReplication = handleTest ./mysql-replication.nix {};
+  mysql = handleTest ./mysql/mysql.nix {};
+  mysql-autobackup = handleTest ./mysql/mysql-autobackup.nix {};
+  mysql-backup = handleTest ./mysql/mysql-backup.nix {};
+  mysql-replication = handleTest ./mysql/mysql-replication.nix {};
   nagios = handleTest ./nagios.nix {};
   nat.firewall = handleTest ./nat.nix { withFirewall = true; };
   nat.firewall-conntrack = handleTest ./nat.nix { withFirewall = true; withConntrackHelpers = true; };
@@ -221,6 +230,7 @@ in
   nginx = handleTest ./nginx.nix {};
   nginx-etag = handleTest ./nginx-etag.nix {};
   nginx-pubhtml = handleTest ./nginx-pubhtml.nix {};
+  nginx-sandbox = handleTestOn ["x86_64-linux"] ./nginx-sandbox.nix {};
   nginx-sso = handleTest ./nginx-sso.nix {};
   nix-ssh-serve = handleTest ./nix-ssh-serve.nix {};
   nixos-generate-config = handleTest ./nixos-generate-config.nix {};
@@ -256,6 +266,7 @@ in
   pppd = handleTest ./pppd.nix {};
   predictable-interface-names = handleTest ./predictable-interface-names.nix {};
   printing = handleTest ./printing.nix {};
+  privacyidea = handleTest ./privacyidea.nix {};
   prometheus = handleTest ./prometheus.nix {};
   prometheus-exporters = handleTest ./prometheus-exporters.nix {};
   prosody = handleTest ./xmpp/prosody.nix {};
@@ -285,6 +296,7 @@ in
   slurm = handleTest ./slurm.nix {};
   smokeping = handleTest ./smokeping.nix {};
   snapper = handleTest ./snapper.nix {};
+  sogo = handleTest ./sogo.nix {};
   solr = handleTest ./solr.nix {};
   spacecookie = handleTest ./spacecookie.nix {};
   spike = handleTest ./spike.nix {};
@@ -297,11 +309,14 @@ in
   syncthing-relay = handleTest ./syncthing-relay.nix {};
   systemd = handleTest ./systemd.nix {};
   systemd-analyze = handleTest ./systemd-analyze.nix {};
+  systemd-binfmt = handleTestOn ["x86_64-linux"] ./systemd-binfmt.nix {};
+  systemd-boot = handleTestOn ["x86_64-linux"] ./systemd-boot.nix {};
   systemd-confinement = handleTest ./systemd-confinement.nix {};
   systemd-timesyncd = handleTest ./systemd-timesyncd.nix {};
   systemd-networkd-vrf = handleTest ./systemd-networkd-vrf.nix {};
   systemd-networkd = handleTest ./systemd-networkd.nix {};
   systemd-networkd-dhcpserver = handleTest ./systemd-networkd-dhcpserver.nix {};
+  systemd-networkd-ipv6-prefix-delegation = handleTest ./systemd-networkd-ipv6-prefix-delegation.nix {};
   systemd-nspawn = handleTest ./systemd-nspawn.nix {};
   pdns-recursor = handleTest ./pdns-recursor.nix {};
   taskserver = handleTest ./taskserver.nix {};
@@ -319,6 +334,7 @@ in
   trickster = handleTest ./trickster.nix {};
   tuptime = handleTest ./tuptime.nix {};
   udisks2 = handleTest ./udisks2.nix {};
+  unit-php = handleTest ./web-servers/unit-php.nix {};
   upnp = handleTest ./upnp.nix {};
   uwsgi = handleTest ./uwsgi.nix {};
   vault = handleTest ./vault.nix {};
@@ -338,6 +354,7 @@ in
   yabar = handleTest ./yabar.nix {};
   yggdrasil = handleTest ./yggdrasil.nix {};
   zfs = handleTest ./zfs.nix {};
-  zsh-history = handleTest ./zsh-history.nix {};
+  zoneminder = handleTest ./zoneminder.nix {};
   zookeeper = handleTest ./zookeeper.nix {};
+  zsh-history = handleTest ./zsh-history.nix {};
 }

@@ -3,7 +3,7 @@
 with stdenv.lib;
 
 buildLinux (args // rec {
-  version = "5.7-rc2";
+  version = "5.7-rc6";
   extraMeta.branch = "5.7";
 
   # modDirVersion needs to be x.y.z, will always add .0
@@ -11,7 +11,7 @@ buildLinux (args // rec {
 
   src = fetchurl {
     url = "https://git.kernel.org/torvalds/t/linux-${version}.tar.gz";
-    sha256 = "06h7lrif84gyzblrdgg4cirsr2v69sdbymwkk89nr3gc87hnjlvs";
+    sha256 = "0g04zwdxks7pa5q6shl5xl2rml1w95rxq7sqkkadj11mpk2k89w4";
   };
 
   # Should the testing kernels ever be built on Hydra?
