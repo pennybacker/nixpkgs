@@ -126,7 +126,7 @@ stdenv.mkDerivation rec {
     # Docs
       (ifMinVer "0.6" "--disable-doc")
     # External Libraries
-      "--enable-libass"
+      #"--enable-libass"
       "--enable-bzlib"
       "--enable-gnutls"
       (ifMinVer "1.0" "--enable-fontconfig")
@@ -170,7 +170,7 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [ addOpenGLRunpath perl pkgconfig texinfo yasm ];
 
   buildInputs = [
-    bzip2 fontconfig freetype gnutls libiconv lame libass libogg libssh libtheora
+    bzip2 fontconfig freetype gnutls libiconv lame libogg libssh libtheora
     libvorbis lzma soxr x264 x265 xvidcore zlib libopus speex nv-codec-headers
   ] ++ optionals openglSupport [ libGL libGLU ]
     ++ optional libmfxSupport intel-media-sdk

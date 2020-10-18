@@ -43,7 +43,7 @@ let
 
     defaultPackages = map (pkg: setPrio ((pkg.meta.priority or 5) + 3) pkg)
       [ pkgs.perl
-        pkgs.rsync
+        #pkgs.rsync
         pkgs.strace
       ];
 

@@ -39,6 +39,7 @@ stdenv.mkDerivation rec {
     "--enable-talloc-compat1"
     "--bundled-libraries=NONE"
     "--builtin-libraries=replace"
+    "--disable-python"
   ];
 
   # this must not be exported before the ConfigurePhase otherwise waf whines
