@@ -17976,6 +17976,8 @@ in
 
     r8168 = callPackage ../os-specific/linux/r8168 { };
 
+    rtl8189es = callPackage ../os-specific/linux/rtl8189es { };
+
     rtl8192eu = callPackage ../os-specific/linux/rtl8192eu { };
 
     rtl8723bs = callPackage ../os-specific/linux/rtl8723bs { };
