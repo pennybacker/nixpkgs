@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, autoreconfHook }:
+{ stdenv, fetchFromGitHub, autoreconfHook, buildPackages }:
 
 stdenv.mkDerivation rec {
   pname = "rpcsvc-proto";
@@ -13,6 +13,7 @@ stdenv.mkDerivation rec {
 
   outputs = [ "out" "man" ];
 
+  depsBuildBuild = [ buildPackages.stdenv.cc ];
   nativeBuildInputs = [ autoreconfHook ];
 
   meta = with stdenv.lib; {
