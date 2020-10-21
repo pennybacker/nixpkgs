@@ -94,14 +94,14 @@ addEntry() {
     else
         echo "  MENU LABEL NixOS - Configuration $tag ($timestamp - $nixosLabel)"
     fi
-    echo "  LINUX ../nixos/$(basename $kernel)"
-    echo "  INITRD ../nixos/$(basename $initrd)"
+    echo "  LINUX nixos/$(basename $kernel)"
+    echo "  INITRD nixos/$(basename $initrd)"
     if [ -d "$dtbDir" ]; then
         # if a dtbName was specified explicitly, use that, else use FDTDIR
         if [ -n "$dtbName" ]; then
-            echo "  FDT ../nixos/$(basename $dtbs)/${dtbName}"
+            echo "  FDT nixos/$(basename $dtbs)/${dtbName}"
         else
-            echo "  FDTDIR ../nixos/$(basename $dtbs)"
+            echo "  FDTDIR nixos/$(basename $dtbs)"
         fi
     else
         if [ -n "$dtbName" ]; then
