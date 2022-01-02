@@ -21777,8 +21777,6 @@ with pkgs;
 
   sickgear = callPackage ../servers/sickbeard/sickgear.nix { };
 
-  sickrage = callPackage ../servers/sickbeard/sickrage.nix { };
-
   sigurlx = callPackage ../tools/security/sigurlx { };
 
   sipwitch = callPackage ../servers/sip/sipwitch { };
