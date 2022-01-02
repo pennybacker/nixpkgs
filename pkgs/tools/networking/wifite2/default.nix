@@ -1,6 +1,6 @@
 { lib, fetchFromGitHub, fetchpatch, python3, wirelesstools
 , aircrack-ng, wireshark-cli, reaverwps-t6x, cowpatty, hashcat, hcxtools
-, hcxdumptool, pyrit, which, bully, pixiewps }:
+, hcxdumptool, which, bully, pixiewps }:
 
 python3.pkgs.buildPythonApplication rec {
   version = "2.5.7";
@@ -33,7 +33,6 @@ python3.pkgs.buildPythonApplication rec {
     hcxtools
     hcxdumptool
     wirelesstools
-    pyrit
     which
     bully
     pixiewps
@@ -54,5 +53,6 @@ python3.pkgs.buildPythonApplication rec {
     license = licenses.gpl2;
     platforms = platforms.linux;
     maintainers = with maintainers; [ lassulus danielfullmer ];
+    broken = true; # missing pyrit dependency, which was removed in the great python2 purge
   };
 }
