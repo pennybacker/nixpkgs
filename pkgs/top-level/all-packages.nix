@@ -27065,8 +27065,6 @@ with pkgs;
 
   mimic = callPackage ../applications/audio/mimic { };
 
-  mimms = callPackage ../applications/audio/mimms {};
-
   meh = callPackage ../applications/graphics/meh {};
 
   mixxx = libsForQt5.callPackage ../applications/audio/mixxx { };
