@@ -58,10 +58,6 @@
     patch = ./export-rt-sched-migrate.patch;
   };
 
-  fix-em-ice-bonding = {
-    name = "fix-em-ice-bonding";
-    patch = ./fix-em-ice-bonding.patch;
-  };
 
   CVE-2023-32233 = rec {
     name = "CVE-2023-32233";
