@@ -52,6 +52,7 @@
 
 # the derivation at which the `-B` and `-L` flags added by `useCcForLibs` will point
 , gccForLibs ? if useCcForLibs then cc else null
+, cmakeWorkaround ? false
 , fortify-headers ? null
 , includeFortifyHeaders ? null
 }:
@@ -570,7 +571,7 @@ stdenvNoCC.mkDerivation {
     # ${cc_solib}/lib64 (even though it does actually search there...)..
     # This confuses libtool.  So add it to the compiler tool search
     # path explicitly.
-    + optionalString (!nativeTools) ''
+    + optionalString (!nativeTools && !cmakeWorkaround) ''
       if [ -e "${cc_solib}/lib64" -a ! -L "${cc_solib}/lib64" ]; then
         ccLDFlags+=" -L${cc_solib}/lib64"
         ccCFlags+=" -B${cc_solib}/lib64"
